@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "npx webpack serve",
+    "server": "npx webpack serve",
     "build": "npx webpack"
   },
   "author": "Patrick Gross",
