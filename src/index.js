@@ -20,9 +20,11 @@ submitBtn.addEventListener("click", () => {
 });
 
 async function currentWeather(location) {
-  fetch(
+  const response = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=4744HCA3XPQ4DV5MVBSTNW4UP`
-  ).then(function (response) {
-    console.log(response.json());
-  });
+  );
+
+  const weatherData = await response.json();
+
+  console.log(weatherData.currentConditions);
 }
