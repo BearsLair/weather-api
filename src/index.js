@@ -26,5 +26,12 @@ async function currentWeather(location) {
 
   const weatherData = await response.json();
 
-  console.log(weatherData.currentConditions);
+  console.log("location: ", weatherData.address);
+  console.log("conditions: ", weatherData.currentConditions.conditions);
+  console.log("temperature: ", weatherData.currentConditions.temp);
+  console.log("feels like: ", weatherData.currentConditions.feelslike);
+  console.log("humidity: ", weatherData.currentConditions.humidity);
+  console.log("precipitation: ", weatherData.currentConditions.precip);
+  console.log("wind direction: ", weatherData.currentConditions.winddir);
+  console.log("wind speed: ", weatherData.currentConditions.windspeed);
 }
