@@ -107,4 +107,5 @@ async function currentWeather(location) {
   console.log("precipitation: ", weatherData.currentConditions.precip);
   console.log("wind direction: ", weatherData.currentConditions.winddir);
   console.log("wind speed: ", weatherData.currentConditions.windspeed);
+  console.log("//////////////////");
 }
