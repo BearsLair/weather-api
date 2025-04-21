@@ -63,6 +63,7 @@ const precipitationDiv = document.createElement("div");
 currentConditionsSection.appendChild(precipitationDiv);
 precipitationDiv.classList.add("precipitation-container");
 
+// Humidity
 const humidityDiv = document.createElement("div");
 precipitationDiv.appendChild(humidityDiv);
 humidityDiv.classList.add("humidity-div");
@@ -75,6 +76,7 @@ humidityDiv.appendChild(currentHumidity);
 currentHumidity.textContent = "50%";
 currentHumidity.classList.add("curr-precip");
 
+// Rain
 const rainDiv = document.createElement("div");
 precipitationDiv.appendChild(rainDiv);
 rainDiv.classList.add("rain-div");
@@ -91,6 +93,33 @@ currentPrecipitation.classList.add("curr-precip");
 const windDiv = document.createElement("div");
 currentConditionsSection.appendChild(windDiv);
 windDiv.classList.add("wind-div");
+
+// Wind direction
+const directionDiv = document.createElement("div");
+windDiv.appendChild(directionDiv);
+directionDiv.classList.add("direction-div");
+const directionText = document.createElement("p");
+directionDiv.appendChild(directionText);
+directionText.textContent = "Direction";
+directionText.classList.add("precipitation-text");
+const currentDirection = document.createElement("p");
+directionDiv.appendChild(currentDirection);
+currentDirection.textContent = "185°";
+currentDirection.classList.add("curr-direction");
+
+// Wind Speed
+const speedDiv = document.createElement("div");
+windDiv.appendChild(speedDiv);
+directionDiv.classList.add("speed-div");
+const speedText = document.createElement("p");
+speedDiv.appendChild(speedText);
+speedText.textContent = "Direction";
+speedText.classList.add("speed-text");
+const currentSpeed = document.createElement("p");
+speedDiv.appendChild(currentSpeed);
+currentSpeed.textContent = "185°";
+currentSpeed.classList.add("curr-speed");
+////////
 
 async function currentWeather(location) {
   const response = await fetch(
