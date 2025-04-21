@@ -92,7 +92,7 @@ currentPrecipitation.classList.add("curr-precip");
 // Wind direction/speed (two divs horizontal to each other)
 const windDiv = document.createElement("div");
 currentConditionsSection.appendChild(windDiv);
-windDiv.classList.add("wind-div");
+windDiv.classList.add("wind-container");
 
 // Wind direction
 const directionDiv = document.createElement("div");
@@ -101,24 +101,24 @@ directionDiv.classList.add("direction-div");
 const directionText = document.createElement("p");
 directionDiv.appendChild(directionText);
 directionText.textContent = "Direction";
-directionText.classList.add("precipitation-text");
+directionText.classList.add("wind-text");
 const currentDirection = document.createElement("p");
 directionDiv.appendChild(currentDirection);
 currentDirection.textContent = "185°";
-currentDirection.classList.add("curr-direction");
+currentDirection.classList.add("curr-wind");
 
 // Wind Speed
 const speedDiv = document.createElement("div");
 windDiv.appendChild(speedDiv);
-directionDiv.classList.add("speed-div");
+speedDiv.classList.add("speed-div");
 const speedText = document.createElement("p");
 speedDiv.appendChild(speedText);
-speedText.textContent = "Direction";
-speedText.classList.add("speed-text");
+speedText.textContent = "Speed";
+speedText.classList.add("wind-text");
 const currentSpeed = document.createElement("p");
 speedDiv.appendChild(currentSpeed);
-currentSpeed.textContent = "185°";
-currentSpeed.classList.add("curr-speed");
+currentSpeed.textContent = "10 mph";
+currentSpeed.classList.add("curr-wind");
 ////////
 
 async function currentWeather(location) {
