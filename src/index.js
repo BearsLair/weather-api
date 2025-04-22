@@ -24,102 +24,112 @@ submitBtn.addEventListener("click", () => {
   currentWeather(location);
 });
 
-// Current Conditions Section
-const currentConditionsSection = document.createElement("section");
-bodyHtml.appendChild(currentConditionsSection);
+const displayCurrConditions = (
+  currLocation,
+  currConditions,
+  currTemperature,
+  currFeelsLike,
+  currHumidity,
+  currPrecip,
+  currWindDir,
+  currWindSpeed
+) => {
+  // Current Conditions Section
+  const currentConditionsSection = document.createElement("section");
+  bodyHtml.appendChild(currentConditionsSection);
 
-// Current Location div (single div)
-const location = document.createElement("h3");
-currentConditionsSection.appendChild(location);
-// TESTING TEXT
-location.textContent = "San Francisco";
+  // Current Location div (single div)
+  const location = document.createElement("h3");
+  currentConditionsSection.appendChild(location);
+  // TESTING TEXT
+  location.textContent = currLocation;
 
-// Current weather condition (single div)
-const conditionsDiv = document.createElement("div");
-currentConditionsSection.appendChild(conditionsDiv);
+  // Current weather condition (single div)
+  const conditionsDiv = document.createElement("div");
+  currentConditionsSection.appendChild(conditionsDiv);
 
-const conditionsText = document.createElement("p");
-conditionsDiv.appendChild(conditionsText);
-conditionsText.textContent = "Clear";
-conditionsText.classList.add("conditions");
+  const conditionsText = document.createElement("p");
+  conditionsDiv.appendChild(conditionsText);
+  conditionsText.textContent = currConditions;
+  conditionsText.classList.add("conditions");
 
-// Temperature and "feels like" text (two divs horizontal to each other)
-const tempSectionDiv = document.createElement("div");
-currentConditionsSection.appendChild(tempSectionDiv);
-tempSectionDiv.classList.add("tempSection-div");
+  // Temperature and "feels like" text (two divs horizontal to each other)
+  const tempSectionDiv = document.createElement("div");
+  currentConditionsSection.appendChild(tempSectionDiv);
+  tempSectionDiv.classList.add("tempSection-div");
 
-const currentTemp = document.createElement("p");
-tempSectionDiv.appendChild(currentTemp);
-currentTemp.textContent = "80°";
-currentTemp.classList.add("temp");
+  const currentTemp = document.createElement("p");
+  tempSectionDiv.appendChild(currentTemp);
+  currentTemp.textContent = `${currTemperature}°`;
+  currentTemp.classList.add("temp");
 
-const currentFeelsLike = document.createElement("p");
-tempSectionDiv.appendChild(currentFeelsLike);
-currentFeelsLike.textContent = "Feels like: 80°";
-currentFeelsLike.classList.add("feels-like");
+  const currentFeelsLike = document.createElement("p");
+  tempSectionDiv.appendChild(currentFeelsLike);
+  currentFeelsLike.textContent = `Feels like: ${currFeelsLike}°`;
+  currentFeelsLike.classList.add("feels-like");
 
-// Humidity and Precipitation (two divs horizontal to each other)
-const precipitationDiv = document.createElement("div");
-currentConditionsSection.appendChild(precipitationDiv);
-precipitationDiv.classList.add("precipitation-container");
+  // Humidity and Precipitation (two divs horizontal to each other)
+  const precipitationDiv = document.createElement("div");
+  currentConditionsSection.appendChild(precipitationDiv);
+  precipitationDiv.classList.add("precipitation-container");
 
-// Humidity
-const humidityDiv = document.createElement("div");
-precipitationDiv.appendChild(humidityDiv);
-humidityDiv.classList.add("humidity-div");
-const humidityText = document.createElement("p");
-humidityDiv.appendChild(humidityText);
-humidityText.textContent = "Humidity";
-humidityText.classList.add("precipitation-text");
-const currentHumidity = document.createElement("p");
-humidityDiv.appendChild(currentHumidity);
-currentHumidity.textContent = "50%";
-currentHumidity.classList.add("curr-precip");
+  // Humidity
+  const humidityDiv = document.createElement("div");
+  precipitationDiv.appendChild(humidityDiv);
+  humidityDiv.classList.add("humidity-div");
+  const humidityText = document.createElement("p");
+  humidityDiv.appendChild(humidityText);
+  humidityText.textContent = "Humidity";
+  humidityText.classList.add("precipitation-text");
+  const currentHumidity = document.createElement("p");
+  humidityDiv.appendChild(currentHumidity);
+  currentHumidity.textContent = `${currHumidity}%`;
+  currentHumidity.classList.add("curr-precip");
 
-// Rain
-const rainDiv = document.createElement("div");
-precipitationDiv.appendChild(rainDiv);
-rainDiv.classList.add("rain-div");
-const precipitationText = document.createElement("p");
-rainDiv.appendChild(precipitationText);
-precipitationText.textContent = "Rain";
-precipitationText.classList.add("precipitation-text");
-const currentPrecipitation = document.createElement("p");
-rainDiv.appendChild(currentPrecipitation);
-currentPrecipitation.textContent = "0%";
-currentPrecipitation.classList.add("curr-precip");
+  // Rain
+  const rainDiv = document.createElement("div");
+  precipitationDiv.appendChild(rainDiv);
+  rainDiv.classList.add("rain-div");
+  const precipitationText = document.createElement("p");
+  rainDiv.appendChild(precipitationText);
+  precipitationText.textContent = "Rain";
+  precipitationText.classList.add("precipitation-text");
+  const currentPrecipitation = document.createElement("p");
+  rainDiv.appendChild(currentPrecipitation);
+  currentPrecipitation.textContent = `${currPrecip}%`;
+  currentPrecipitation.classList.add("curr-precip");
 
-// Wind direction/speed (two divs horizontal to each other)
-const windDiv = document.createElement("div");
-currentConditionsSection.appendChild(windDiv);
-windDiv.classList.add("wind-container");
+  // Wind direction/speed (two divs horizontal to each other)
+  const windDiv = document.createElement("div");
+  currentConditionsSection.appendChild(windDiv);
+  windDiv.classList.add("wind-container");
 
-// Wind direction
-const directionDiv = document.createElement("div");
-windDiv.appendChild(directionDiv);
-directionDiv.classList.add("direction-div");
-const directionText = document.createElement("p");
-directionDiv.appendChild(directionText);
-directionText.textContent = "Direction";
-directionText.classList.add("wind-text");
-const currentDirection = document.createElement("p");
-directionDiv.appendChild(currentDirection);
-currentDirection.textContent = "185°";
-currentDirection.classList.add("curr-wind");
+  // Wind direction
+  const directionDiv = document.createElement("div");
+  windDiv.appendChild(directionDiv);
+  directionDiv.classList.add("direction-div");
+  const directionText = document.createElement("p");
+  directionDiv.appendChild(directionText);
+  directionText.textContent = "Direction";
+  directionText.classList.add("wind-text");
+  const currentDirection = document.createElement("p");
+  directionDiv.appendChild(currentDirection);
+  currentDirection.textContent = `${currWindDir}°`;
+  currentDirection.classList.add("curr-wind");
 
-// Wind Speed
-const speedDiv = document.createElement("div");
-windDiv.appendChild(speedDiv);
-speedDiv.classList.add("speed-div");
-const speedText = document.createElement("p");
-speedDiv.appendChild(speedText);
-speedText.textContent = "Speed";
-speedText.classList.add("wind-text");
-const currentSpeed = document.createElement("p");
-speedDiv.appendChild(currentSpeed);
-currentSpeed.textContent = "10 mph";
-currentSpeed.classList.add("curr-wind");
-////////
+  // Wind Speed
+  const speedDiv = document.createElement("div");
+  windDiv.appendChild(speedDiv);
+  speedDiv.classList.add("speed-div");
+  const speedText = document.createElement("p");
+  speedDiv.appendChild(speedText);
+  speedText.textContent = "Speed";
+  speedText.classList.add("wind-text");
+  const currentSpeed = document.createElement("p");
+  speedDiv.appendChild(currentSpeed);
+  currentSpeed.textContent = `${currWindSpeed} mph`;
+  currentSpeed.classList.add("curr-wind");
+};
 
 async function currentWeather(location) {
   const response = await fetch(
@@ -128,13 +138,23 @@ async function currentWeather(location) {
 
   const weatherData = await response.json();
 
-  console.log("location: ", weatherData.address);
-  console.log("conditions: ", weatherData.currentConditions.conditions);
-  console.log("temperature: ", weatherData.currentConditions.temp);
-  console.log("feels like: ", weatherData.currentConditions.feelslike);
-  console.log("humidity: ", weatherData.currentConditions.humidity);
-  console.log("precipitation: ", weatherData.currentConditions.precip);
-  console.log("wind direction: ", weatherData.currentConditions.winddir);
-  console.log("wind speed: ", weatherData.currentConditions.windspeed);
-  console.log("//////////////////");
+  const address = weatherData.address;
+  const conditions = weatherData.currentConditions.conditions;
+  const temperature = weatherData.currentConditions.temp;
+  const feelsLike = weatherData.currentConditions.feelslike;
+  const humidity = weatherData.currentConditions.humidity;
+  const precipitation = weatherData.currentConditions.precip;
+  const windDir = weatherData.currentConditions.winddir;
+  const windSpeed = weatherData.currentConditions.windspeed;
+
+  displayCurrConditions(
+    address,
+    conditions,
+    temperature,
+    feelsLike,
+    humidity,
+    precipitation,
+    windDir,
+    windSpeed
+  );
 }
