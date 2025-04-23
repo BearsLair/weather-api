@@ -1,3 +1,5 @@
+const capitalizeAllWords = require("capitalizefirstletterofwords");
+
 import "./styles.css";
 
 // Main HTML Body Element
@@ -148,7 +150,7 @@ async function currentWeather(location) {
     // Current weather data is extracted from the json file,
     // and sent to the display function to display the data
     // to the user.
-    const address = weatherData.address;
+    const address = capitalizeAllWords(weatherData.address);
     const conditions = weatherData.currentConditions.conditions;
     const temperature = weatherData.currentConditions.temp;
     const feelsLike = weatherData.currentConditions.feelslike;
