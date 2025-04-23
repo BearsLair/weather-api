@@ -6,16 +6,19 @@ const bodyHtml = document.querySelector("body");
 // User city input and submit button div
 const userInputDiv = document.createElement("div");
 bodyHtml.appendChild(userInputDiv);
+userInputDiv.classList.add("input-div");
 
 // User input for city name
 const locationInput = document.createElement("input");
 userInputDiv.appendChild(locationInput);
 locationInput.setAttribute("placeholder", "Enter a city...");
+locationInput.classList.add("user-textinput");
 
 // User button for submitting location
 const submitBtn = document.createElement("button");
 userInputDiv.appendChild(submitBtn);
-submitBtn.textContent = "Submit Location";
+submitBtn.textContent = "Submit";
+submitBtn.classList.add("user-submitbtn");
 
 // Current Conditions Section
 const currentConditionsSection = document.createElement("section");
