@@ -2,17 +2,18 @@ body {
   background-color: rebeccapurple;
 }
 
-section {
+.currentConditions-section {
   border: 1px solid black;
   margin-top: 20px;
   border-radius: 20px;
+  width: 312px;
 }
 
-section > h3 {
+.currentConditions-section > h3 {
   text-align: center;
 }
 
-section > div {
+.currentConditions-section > div {
   border: 1px solid black;
 }
 

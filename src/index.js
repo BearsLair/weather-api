@@ -17,8 +17,15 @@ const submitBtn = document.createElement("button");
 userInputDiv.appendChild(submitBtn);
 submitBtn.textContent = "Submit Location";
 
+// Current Conditions Section
+const currentConditionsSection = document.createElement("section");
+bodyHtml.appendChild(currentConditionsSection);
+currentConditionsSection.classList.add("currentConditions-section");
+
 // Submit button logic
 submitBtn.addEventListener("click", () => {
+  currentConditionsSection.replaceChildren();
+
   const location = locationInput.value;
 
   currentWeather(location);
@@ -34,10 +41,6 @@ const displayCurrConditions = (
   currWindDir,
   currWindSpeed
 ) => {
-  // Current Conditions Section
-  const currentConditionsSection = document.createElement("section");
-  bodyHtml.appendChild(currentConditionsSection);
-
   // Current Location div (single div)
   const location = document.createElement("h3");
   currentConditionsSection.appendChild(location);
