@@ -151,7 +151,9 @@ async function currentWeather(location) {
     // and sent to the display function to display the data
     // to the user.
     const address = capitalizeAllWords(weatherData.address);
-    const conditions = weatherData.currentConditions.conditions;
+    const conditions = capitalizeAllWords(
+      weatherData.currentConditions.conditions
+    );
     const temperature = weatherData.currentConditions.temp;
     const feelsLike = weatherData.currentConditions.feelslike;
     const humidity = weatherData.currentConditions.humidity;
