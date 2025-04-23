@@ -138,29 +138,36 @@ const displayCurrConditions = (
 };
 
 async function currentWeather(location) {
-  const response = await fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=4744HCA3XPQ4DV5MVBSTNW4UP`
-  );
+  try {
+    const response = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=4744HCA3XPQ4DV5MVBSTNW4UP`
+    );
 
-  const weatherData = await response.json();
+    const weatherData = await response.json();
 
-  const address = weatherData.address;
-  const conditions = weatherData.currentConditions.conditions;
-  const temperature = weatherData.currentConditions.temp;
-  const feelsLike = weatherData.currentConditions.feelslike;
-  const humidity = weatherData.currentConditions.humidity;
-  const precipitation = weatherData.currentConditions.precip;
-  const windDir = weatherData.currentConditions.winddir;
-  const windSpeed = weatherData.currentConditions.windspeed;
+    // Current weather data is extracted from the json file,
+    // and sent to the display function to display the data
+    // to the user.
+    const address = weatherData.address;
+    const conditions = weatherData.currentConditions.conditions;
+    const temperature = weatherData.currentConditions.temp;
+    const feelsLike = weatherData.currentConditions.feelslike;
+    const humidity = weatherData.currentConditions.humidity;
+    const precipitation = weatherData.currentConditions.precip;
+    const windDir = weatherData.currentConditions.winddir;
+    const windSpeed = weatherData.currentConditions.windspeed;
 
-  displayCurrConditions(
-    address,
-    conditions,
-    temperature,
-    feelsLike,
-    humidity,
-    precipitation,
-    windDir,
-    windSpeed
-  );
+    displayCurrConditions(
+      address,
+      conditions,
+      temperature,
+      feelsLike,
+      humidity,
+      precipitation,
+      windDir,
+      windSpeed
+    );
+  } catch (error) {
+    console.log(error);
+  }
 }
